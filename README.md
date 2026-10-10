@@ -1,6 +1,6 @@
 # 📣 Announcer
 
-Send a message from one browser tab and have every listening tab play a sound and show it, live.
+Send a message from one device and have every listening device play a sound and show it, live.
 
 - **Announce** a message, optionally tagged with a topic.
 - **Listen** on all topics, or on a single topic.
