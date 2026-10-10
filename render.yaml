@@ -9,5 +9,3 @@ services:
     envVars:
       - key: BUN_VERSION
         value: "1.4.2"
-      - key: NODE_VERSION
-        value: "24.21.0"
