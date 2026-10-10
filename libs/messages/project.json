@@ -1,0 +1,10 @@
+{
+  "name": "messages",
+  "projectType": "library",
+  "sourceRoot": "libs/messages/src",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p libs/messages/tsconfig.json"
+    }
+  }
+}

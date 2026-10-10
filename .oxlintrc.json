@@ -1,0 +1,92 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": { "correctness": "error" },
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["libs/topics/src/**/*.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "@announce/*", "react*", "hono*", "node:*", "bun", "bun:*"],
+            "paths": ["fs", "path", "child_process", "os"]
+          }
+        ],
+        "no-restricted-globals": ["error", "process", "Bun", "window", "document"]
+      }
+    },
+    {
+      "files": ["libs/messages/src/**/*.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "@announce/sounds", "@announce/ui", "@announce/web", "react*", "hono*", "node:*", "bun", "bun:*"],
+            "paths": ["fs", "path", "child_process", "os"]
+          }
+        ],
+        "no-restricted-globals": ["error", "process", "Bun", "window", "document"]
+      }
+    },
+    {
+      "files": ["libs/sounds/src/**/*.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "@announce/topics", "@announce/messages", "@announce/ui", "@announce/web", "react*", "hono*", "node:*", "bun", "bun:*"],
+            "paths": ["fs", "path", "child_process", "os"]
+          }
+        ],
+        "no-restricted-globals": ["error", "process", "Bun"]
+      }
+    },
+    {
+      "files": ["libs/ui/src/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "@announce/sounds", "@announce/topics", "@announce/web", "hono*", "node:*", "bun", "bun:*"],
+            "paths": ["fs", "path", "child_process", "os"]
+          }
+        ],
+        "no-restricted-globals": ["error", "process", "Bun", "fetch", "WebSocket", "AudioContext"]
+      }
+    },
+    {
+      "files": ["apps/web/src/server/**/*.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "@announce/ui", "@announce/sounds", "react*", "**/client/**", "**/apps/web/src/client/**"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["apps/web/src/client/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@announce/*/*", "**/libs/**", "**/apps/**", "**/topics/src/**", "**/messages/src/**", "**/sounds/src/**", "**/ui/src/**", "**/web/src/**", "hono*", "@hono/*", "node:*", "bun", "bun:*", "**/server/**"]
+          }
+        ],
+        "no-restricted-globals": ["error", "process", "Bun"]
+      }
+    }
+  ],
+  "ignorePatterns": ["node_modules", "dist", "coverage", ".nx"],
+  "env": { "builtin": true }
+}

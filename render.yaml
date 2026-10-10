@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: announcer
+    runtime: node
+    plan: free
+    buildCommand: "NODE_ENV=development bun install --frozen-lockfile && bun run build"
+    startCommand: "bun run start"
+    healthCheckPath: /listen
+    envVars:
+      - key: BUN_VERSION
+        value: "1.4.2"
+      - key: NODE_VERSION
+        value: "24.21.0"

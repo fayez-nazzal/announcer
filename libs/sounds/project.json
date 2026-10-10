@@ -1,0 +1,10 @@
+{
+  "name": "sounds",
+  "projectType": "library",
+  "sourceRoot": "libs/sounds/src",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p libs/sounds/tsconfig.json"
+    }
+  }
+}

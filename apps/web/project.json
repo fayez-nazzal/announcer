@@ -1,0 +1,24 @@
+{
+  "name": "web",
+  "projectType": "application",
+  "sourceRoot": "apps/web/src",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p apps/web/tsconfig.server.json && tsc -p apps/web/tsconfig.client.json"
+    },
+    "build": {
+      "command": "node ./node_modules/vite/bin/vite.js build --config apps/web/vite.config.ts",
+      "dependsOn": ["typecheck"]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": true,
+        "commands": [
+          "bun --watch apps/web/src/server/main.ts",
+          "node ./node_modules/vite/bin/vite.js --config apps/web/vite.config.ts"
+        ]
+      }
+    }
+  }
+}

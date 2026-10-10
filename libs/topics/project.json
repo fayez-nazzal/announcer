@@ -1,0 +1,10 @@
+{
+  "name": "topics",
+  "projectType": "library",
+  "sourceRoot": "libs/topics/src",
+  "targets": {
+    "typecheck": {
+      "command": "tsc -p libs/topics/tsconfig.json"
+    }
+  }
+}
